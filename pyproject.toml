@@ -1,0 +1,14 @@
+[build-system]
+requires = [
+    "setuptools>=42.0",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 79
+target-version = ["py36"]
+
+[tool.mypy]
+show_error_codes = true
+check_untyped_defs = true
+no_implicit_reexport = true
