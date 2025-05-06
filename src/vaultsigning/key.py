@@ -6,8 +6,8 @@ from oci.regions import REALMS, REGION_REALMS
 from oci.key_management.models.sign_data_details import SignDataDetails
 from oci.key_management.kms_crypto_client import KmsCryptoClient
 
-from cryptography.hazmat.primitives import _serialization, hashes
-from cryptography.hazmat.primitives._asymmetric import AsymmetricPadding
+from cryptography.hazmat.primitives import serialization, hashes
+from cryptography.hazmat.primitives.asymmetric.padding import AsymmetricPadding
 from cryptography.hazmat.primitives.asymmetric import (
     rsa,
     utils as asym_utils,
@@ -83,8 +83,8 @@ class OCIRSAPrivateKey(rsa.RSAPrivateKey):
 
     def private_bytes(
         self,
-        encoding: _serialization.Encoding,
-        format: _serialization.PrivateFormat,
-        encryption_algorithm: _serialization.KeySerializationEncryption,
+        encoding: serialization.Encoding,
+        format: serialization.PrivateFormat,
+        encryption_algorithm: serialization.KeySerializationEncryption,
     ) -> bytes:
         raise NotImplementedError()
